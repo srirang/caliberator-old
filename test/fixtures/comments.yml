@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  text: "SUMMARY: Aldous Huxley's tour de force, Brave New World is a darkly satiric vision of a utopian future—where humans are genetically bred and pharmaceutically anesthetized to passively serve a ruling order. A powerful work of speculative fiction that has enthralled and terrified readers for generations, it remains remarkably relevant to this day as both a warning to be heeded as we head into tomorrow and as thought-provoking, satisfying entertainment.""
+  book: 1
+
+two:
+  text: MyText
+  book: 2

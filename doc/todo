@@ -1,0 +1,14 @@
+* Link the following tables to Book
+ - Data (done)
+ - Comments (done)
+ - Tags
+ - Show image if available
+* File download
+ - download link (done)
+ - Mime-types: application/x-mobipocket-ebook (mobi) (Use hashmap with symbols ActiveSupport::CoreExtensions::String::Inflections::parameterize.underscore.to_sym)
+* Search (full text)
+* Pretty home page
+* Make database read-only
+* Hyperlink on Author to show all books by Author
+  - book_authors_link holds manu-many relationship between book and author, book.author_sort holds the text only (not the reference)
+* Commit to github (done)

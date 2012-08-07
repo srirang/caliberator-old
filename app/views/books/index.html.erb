@@ -1,0 +1,48 @@
+<%= form_tag 'books#index', :method => 'get', :class => 'well form-search' do %>
+  Title: <%= text_field_tag :search, params[:search], :class => 'input-medium search-query' %>
+  Author: <%= text_field_tag :author, params[:author], :class => 'input-medium search-query' %>
+  Summary: <%= text_field_tag :summary, params[:summary], :class => 'input-medium search-query' %>
+  <%= submit_tag "Search", :name => nil, :class => 'btn' %> 
+<% end %> 
+
+<form class="well form-search">
+  <h2>Recent books</h2>
+<table class="table">
+  <tr>
+    <!-- <th>Image</th> -->
+    <th>Title</th>
+    <th>Author</th>
+    <th>Summary</th>
+    <th>Link</th>
+  </tr>
+
+  <% @recent_books.each do |book| %>
+  <tr>
+    <!-- <td><img height="120px" src="file:///<%= book.get_image_path %>" /></td> -->
+    <td><%= truncate(book.get_title, :length => 40) %></td>
+    <td><%= book.get_author %></td>
+    <td><%= book.get_summary %></td>
+    <td><%= link_to 'Download', download_book_path(book) %></td>
+  </tr>
+  <% end %>
+</table>
+
+<h2>Search Results</h2>
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Summary</th>
+    <th>Link</th>
+  </tr>
+
+  <% @books.each do |book| %>
+  <tr>
+    <td><%= truncate(book.get_title, :length => 40) %></td>
+    <td><%= book.get_author %></td>
+    <td><%= book.get_summary %></td>
+    <td><%= link_to 'Download', download_book_path(book) %></td>
+  </tr>
+  <% end %>
+</table>
+</form>

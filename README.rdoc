@@ -1,0 +1,12 @@
+== Caliberator - liberate your Calibre e-book library
+
+Caliberator is a free and open source software system that takes the pain out of sharing your e-book library with the world or to your home network.
+
+Its features include...
+* 
+* 
+
+
+
+Calibre (www.calibre-ebook.com) is a free and open source e-book library management application developed by users of e-books for users of e-books. Its features include library Management, e-book viewer/converter and a content server for online access to your book collection
+

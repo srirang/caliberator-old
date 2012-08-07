@@ -1,0 +1,47 @@
+<h1>Listing books</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Sort</th>
+    <th>Timestamp</th>
+    <th>Pubdate</th>
+    <th>Series index</th>
+    <th>Author sort</th>
+    <th>Isbn</th>
+    <th>Lccn</th>
+    <th>Path</th>
+    <th>Flags</th>
+    <th>Uuid</th>
+    <th>Has cover</th>
+    <th>Last modified</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @books.each do |book| %>
+  <tr>
+    <td><%= book.title %></td>
+    <td><%= book.sort %></td>
+    <td><%= book.timestamp %></td>
+    <td><%= book.pubdate %></td>
+    <td><%= book.series_index %></td>
+    <td><%= book.author_sort %></td>
+    <td><%= book.isbn %></td>
+    <td><%= book.lccn %></td>
+    <td><%= book.path %></td>
+    <td><%= book.flags %></td>
+    <td><%= book.uuid %></td>
+    <td><%= book.has_cover %></td>
+    <td><%= book.last_modified %></td>
+    <td><%= link_to 'Show', book %></td>
+    <td><%= link_to 'Edit', edit_book_path(book) %></td>
+    <td><%= link_to 'Destroy', book, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Book', new_book_path %>

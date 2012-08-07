@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @book.title %>
+</p>
+
+<p>
+  <b>Sort:</b>
+  <%= @book.sort %>
+</p>
+
+<p>
+  <b>Timestamp:</b>
+  <%= @book.timestamp %>
+</p>
+
+<p>
+  <b>Pubdate:</b>
+  <%= @book.pubdate %>
+</p>
+
+<p>
+  <b>Series index:</b>
+  <%= @book.series_index %>
+</p>
+
+<p>
+  <b>Author sort:</b>
+  <%= @book.author_sort %>
+</p>
+
+<p>
+  <b>Isbn:</b>
+  <%= @book.isbn %>
+</p>
+
+<p>
+  <b>Lccn:</b>
+  <%= @book.lccn %>
+</p>
+
+<p>
+  <b>Path:</b>
+  <%= @book.path %>
+</p>
+
+<p>
+  <b>Flags:</b>
+  <%= @book.flags %>
+</p>
+
+<p>
+  <b>Uuid:</b>
+  <%= @book.uuid %>
+</p>
+
+<p>
+  <b>Has cover:</b>
+  <%= @book.has_cover %>
+</p>
+
+<p>
+  <b>Last modified:</b>
+  <%= @book.last_modified %>
+</p>
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
