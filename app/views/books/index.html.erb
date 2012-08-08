@@ -1,23 +1,50 @@
 <%= form_tag 'books#index', :method => 'get', :class => 'well form-search' do %>
-  Title: <%= text_field_tag :search, params[:search], :class => 'input-medium search-query' %>
-  Author: <%= text_field_tag :author, params[:author], :class => 'input-medium search-query' %>
-  Summary: <%= text_field_tag :summary, params[:summary], :class => 'input-medium search-query' %>
-  <%= submit_tag "Search", :name => nil, :class => 'btn' %> 
+Title: <%= text_field_tag :search, params[:search], :class => 'input-medium search-query' %>
+Author: <%= text_field_tag :author, params[:author], :class => 'input-medium search-query' %>
+Summary: <%= text_field_tag :summary, params[:summary], :class => 'input-medium search-query' %>
+<%= submit_tag "Search", :name => nil, :class => 'btn' %> 
 <% end %> 
 
-<form class="well form-search">
   <h2>Recent books</h2>
-    <ul>
-      <% @recent_books.each do |book| %>
-      <li>
-        <%= truncate(book.get_title) %> by <%= book.get_author %>
-        <%= link_to 'Download', download_book_path(book), :class => 'label label-success'%>
-      </li>
+  <ul>
+    <% @recent_books.each do |book| %>
+    <li>
+      <%= truncate(book.get_title) %> by
+      <% book.authors.each do |author| %>
+        <%= link_to author.name, author_path(author) %>,
       <% end %>
+      <%= link_to 'Download', download_book_path(book) %>
+    </li>
+    <% end %>
   </ul>
 
   <h2>Search Results</h2>
-  <table class="table">
+  <div class="span9" id="results-main">
+    <h4><small><%= @books.size %> books found in your library</small></h4>
+
+    <div id="results" class="results-on">
+      <% @books.each do |book| %>
+        <section class="result-part">
+          <img id="result-thumb" class="pull-left" src="img/image-1.jpg">
+          <h3><%= link_to book.get_title, book_path(book) %>
+            <br>
+            <span class="manf-name">
+              By
+              <% book.authors.each do |author| %>
+                <%= link_to author.name, author_path(author), :class => 'manf-name' %>, 
+              <% end %>
+            </span>
+          </h3>
+          <p class="short-desc pull-left"><%= truncate(book.get_summary, :length => 220, :separator => ' ') %></p>
+          <div class="price-avail pull-right">
+            <button class="btn btn-success">Download <i class="icon-download icon-white"></i></button>
+          </div>
+        </section>
+      <% end %>
+    </div>
+  </div>
+<!--
+  <table class="table" id="results-main">
     <tr>
       <th>Title</th>
       <th>Author</th>
@@ -33,9 +60,11 @@
             <%= link_to author.name, author_path(author) %>, 
           <% end %>
         </td>
-        <td><%= book.get_summary %></td>
-        <td><%= link_to 'Get', download_book_path(book) %></td>
+        <td>
+          <span class="short-desc pull-left"><%= book.get_summary %></span>
+          <%= link_to 'Download', download_book_path(book), :class => 'label label-success' %>
+        </td>
       </tr>
     <% end %>
   </table>
-</form>
+-->

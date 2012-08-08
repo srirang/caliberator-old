@@ -11,6 +11,7 @@ body {
 
 section {
 	overflow: auto;
+	display: block;
 }
 
 textarea {
@@ -100,5 +101,24 @@ body {
 .nav .nav-header {
 	font-size: 18px;
 	color:#FF9900;
+}
+
+#results-main{overflow:hidden}
+#result-set,#results-parts{clear:both; overflow:hidden; padding-top:10px}
+
+
+.results-link {color:#888; font-size:11px}
+.manf-name{font-size:10px; font-weight:normal}
+.data-icon{float:right; margin: 0 0 0 6px}
+.data-icon img {height:16px; width:auto}
+
+#result-thumb {height:auto; width:90px}
+#results section {border-bottom: 1px solid #666}
+.result-part {margin:10px; overflow:hidden; padding-bottom:5px}
+
+.short-desc {max-width: 70%}
+
+.pull-left {
+  float: left;
 }
 
