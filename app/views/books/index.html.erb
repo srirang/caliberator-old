@@ -9,7 +9,6 @@
   <h2>Recent books</h2>
     <ul>
       <% @recent_books.each do |book| %>
-      <!-- <li><img width="100%" height="200px" src="file:///<%= book.get_image_path %>" /></li> -->
       <li>
         <%= truncate(book.get_title) %> by <%= book.get_author %>
         <%= link_to 'Get', download_book_path(book) %>

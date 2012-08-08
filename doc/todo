@@ -3,10 +3,12 @@
  - Comments (done)
  - Tags
  - Show image if available
+   - Not possible if the image is on local file system, try sym link workaround
 * File download
  - download link (done)
  - Mime-types: application/x-mobipocket-ebook (mobi) (Use hashmap with symbols ActiveSupport::CoreExtensions::String::Inflections::parameterize.underscore.to_sym)
-* Search (full text)
+* Search
+ - Needs mysql database
 * Pretty home page
 * Make database read-only
 * Hyperlink on Author to show all books by Author
