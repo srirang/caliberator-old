@@ -3,7 +3,6 @@ class Book < ActiveRecord::Base
   has_one :comment, :foreign_key => "book"
   has_and_belongs_to_many :authors, :join_table => "books_authors_link", :foreign_key => "book", :association_foreign_key => "author"
 
-
   @@basepath = "#{Rails.root}/public/Calibre Library"
 
   def get_filepath
@@ -51,6 +50,10 @@ class Book < ActiveRecord::Base
 
   def get_author
     author_sort.titleize
+  end
+
+  def get_author_names
+    author_names = authors.collect{|author| author.name}
   end
 
   def get_thumbnail
