@@ -46,11 +46,11 @@ class Book < ActiveRecord::Base
   end
 
   def get_title
-    title
+    title.strip.titleize
   end
 
   def get_author
-    author_sort
+    author_sort.titleize
   end
 
   def get_thumbnail
