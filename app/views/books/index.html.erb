@@ -1,8 +1,8 @@
 <%= form_tag 'books#index', :method => 'get', :class => 'well form-search' do %>
-Title: <%= text_field_tag :search, params[:search], :class => 'input-medium search-query' %>
-Author: <%= text_field_tag :author, params[:author], :class => 'input-medium search-query' %>
-Summary: <%= text_field_tag :summary, params[:summary], :class => 'input-medium search-query' %>
-<%= submit_tag "Search", :name => nil, :class => 'btn' %> 
+  Title: <%= text_field_tag :search, params[:search], :class => 'input-medium search-query' %>
+  Author: <%= text_field_tag :author, params[:author], :class => 'input-medium search-query' %>
+  Summary: <%= text_field_tag :summary, params[:summary], :class => 'input-medium search-query' %>
+  <%= submit_tag "Search", :name => nil, :class => 'btn' %> 
 <% end %> 
 
   <h2>Recent books</h2>
@@ -13,7 +13,7 @@ Summary: <%= text_field_tag :summary, params[:summary], :class => 'input-medium 
       <% book.authors.each do |author| %>
         <%= link_to author.name, author_path(author) %>,
       <% end %>
-      <%= link_to 'Download', download_book_path(book) %>
+      <%= button_to 'Download', download_book_path(book), :class => 'btn btn-success btn-mini' %>
     </li>
     <% end %>
   </ul>
@@ -25,19 +25,23 @@ Summary: <%= text_field_tag :summary, params[:summary], :class => 'input-medium 
     <div id="results" class="results-on">
       <% @books.each do |book| %>
         <section class="result-part">
-          <img id="result-thumb" class="pull-left" src="img/image-1.jpg">
+          <!-- <img id="result-thumb" class="pull-left" src="img/image-1.jpg"> -->
           <h3><%= link_to book.get_title, book_path(book) %>
             <br>
-            <span class="manf-name">
-              By
+            <span class="medium-name">
+              <% if book.authors.size < 2 %>
+                Author:
+              <% else %>
+                Authors:
+              <% end %>
               <% book.authors.each do |author| %>
-                <%= link_to author.name, author_path(author), :class => 'manf-name' %>, 
+                <%= link_to author.name, author_path(author) %>, 
               <% end %>
             </span>
           </h3>
-          <p class="short-desc pull-left"><%= truncate(book.get_summary, :length => 220, :separator => ' ') %></p>
+          <p class="short-desc pull-left"><%= truncate(book.get_summary, :length => 300, :separator => ' ') %></p>
           <div class="price-avail pull-right">
-            <button class="btn btn-success">Download <i class="icon-download icon-white"></i></button>
+            <%= button_to 'Download', download_book_path(book), :class => 'btn btn-success btn-mini' %>
           </div>
         </section>
       <% end %>
