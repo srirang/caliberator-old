@@ -1,5 +1,5 @@
 <%= form_tag 'books#index', :method => 'get', :class => 'well form-search' do %>
-  Title: <%= text_field_tag :search, params[:search], :class => 'input-medium search-query' %>
+  Title: <span id="span12"><%= text_field_tag :search, params[:search], :class => 'input-medium search-query' %></span>
   Author: <%= text_field_tag :author, params[:author], :class => 'input-medium search-query' %>
   Summary: <%= text_field_tag :summary, params[:summary], :class => 'input-medium search-query' %>
   <%= submit_tag "Search", :name => nil, :class => 'btn' %> 
@@ -13,7 +13,7 @@
       <% book.authors.each do |author| %>
         <%= link_to author.name, author_path(author) %>,
       <% end %>
-      <%= button_to 'Download', download_book_path(book), :class => 'btn btn-success btn-mini' %>
+      <%= button_to 'Download', download_book_path(book), :method => 'get', :class => 'btn btn-success btn-mini' %>
     </li>
     <% end %>
   </ul>
@@ -41,7 +41,7 @@
           </h3>
           <p class="short-desc pull-left"><%= truncate(book.get_summary, :length => 300, :separator => ' ') %></p>
           <div class="price-avail pull-right">
-            <%= button_to 'Download', download_book_path(book), :class => 'btn btn-success btn-mini' %>
+            <%= button_to 'Download', download_book_path(book), :method => 'get', :class => 'btn btn-success btn-mini' %>
           </div>
         </section>
       <% end %>
