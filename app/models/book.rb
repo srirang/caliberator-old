@@ -22,7 +22,7 @@ class Book < ActiveRecord::Base
   end
 
   def get_filename
-    return "#{datum[0].name}.#{get_extension}"
+    return "#{datum[0].name}.#{get_extension.downcase}"
   end
 
   def get_extension
