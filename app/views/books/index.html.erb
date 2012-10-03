@@ -25,7 +25,10 @@
     <div id="results" class="results-on">
       <% @books.each do |book| %>
         <section class="result-part">
-          <!-- <img id="result-thumb" class="pull-left" src="img/image-1.jpg"> -->
+          <% if book.has_cover %>
+            <%= image_tag book.get_thumbnail, :width => 90 %>
+          <% end %>
+
           <h3><%= link_to book.get_title, book_path(book) %>
             <br>
             <span class="medium-name">
